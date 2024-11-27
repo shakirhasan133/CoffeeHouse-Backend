@@ -34,11 +34,14 @@ async function run() {
     const database = client.db("CoffeeDB");
     const CoffeeData = database.collection("Coffees");
 
-    app.get("/products", async (req, res) => {
-      const cursor = CoffeeData.find();
-      const data = await cursor.toArray();
-      res.send(data);
-    });
+    app.get(
+      "https://coffee-house-backend.vercel.app//products",
+      async (req, res) => {
+        const cursor = CoffeeData.find();
+        const data = await cursor.toArray();
+        res.send(data);
+      }
+    );
 
     app.get("/product-details/:id", async (req, res) => {
       const id = req.params.id;
