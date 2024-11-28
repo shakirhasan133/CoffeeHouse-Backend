@@ -70,7 +70,7 @@ async function run() {
     app.delete("/delete/:id", async (req, res) => {
       try {
         const id = req.params.id;
-        const filter = { id: "_id" };
+        const filter = { _id: id };
         const result = await CoffeeData.deleteOne(filter);
         console.log("Data Delete Successfully");
         res.send(result);
